@@ -11,13 +11,17 @@ import getValidationErrors from '../../utils/getValidationErrors';
 import { Link,useHistory } from 'react-router-dom';
 import { useToast } from '../../hook/toast';
 import api from '../../services/api';
-
+interface SignUpFormData{
+  name: string;
+  email:string;
+  password:string;  
+}
 const SignIn: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
   const {addToast} = useToast();
   const history = useHistory();
 
-  const handleSubmit = useCallback(async (data: object) => {
+  const handleSubmit = useCallback(async (data: SignUpFormData) => {
     formRef.current?.setErrors({});
 
     try {
@@ -34,7 +38,7 @@ const SignIn: React.FC = () => {
       await api.post('/session', data);
       addToast({
         title:'Conta cadastrada com sucesso',
-        description:'Você foi redirecionado para fazer seu primeiro login',
+        description:'Você será redirecionado para fazer seu primeiro login',
         type: 'success'
       });
       history.push('/');
