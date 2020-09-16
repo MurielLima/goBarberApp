@@ -11,39 +11,39 @@ import getValidationErrors from '../../utils/getValidationErrors';
 import { useAuth } from '../../hook/auth';
 import { useToast } from '../../hook/toast';
 import { Link, useHistory } from '../ResetPassword/node_modules/react-router-dom';
-interface SignInFormData {
-  email: string;
+import api from '../../services/api';
+interface ResetPasswordFormData {
   password: string;
+  password_confirmation: string;
 }
-const SignIn: React.FC = () => {
+const ResetPassword: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
-  const { signIn } = useAuth();
   const { addToast } = useToast();
   const history = useHistory();
 
   const handleSubmit = useCallback(
-    async (data: SignInFormData) => {
+    async (data: ResetPasswordFormData) => {
       formRef.current?.setErrors({});
 
       try {
         const schema = Yup.object().shape({
-          email: Yup.string()
-            .required('E-mail é obrigatório')
-            .email('Digite um e-mail válido'),
           password: Yup.string().required('Senha obrigatória'),
         });
         await schema.validate(data, {
           abortEarly: false,
         });
-        await signIn({
-          email: data.email,
-          password: data.password,
-        });
+        const {password, password_confirmation} = data;
+        const token = location.search.replace('?token=','');
+        await api.post('/password/reset',{
+          password,
+          password_confirmation,
+          token
+        })
         addToast({
-          title:'Login feito com sucesso!',
+          title:'Reset de senha feito com sucesso!',
           type: 'success'
         });
-        history.push('/');
+        history.push('/signin');
       } catch (err) {
         if (err instanceof Yup.ValidationError) {
           console.log(err);
@@ -53,12 +53,12 @@ const SignIn: React.FC = () => {
         }
         addToast({
           type: 'error',
-          title: 'Erro na autenticação',
-          description: 'Ocorreu um erro ao fazer login, cheque as credenciais.',
+          title: 'Erro no reset de senha',
+          description: 'Ocorreu um erro ao fazer reset de senha.',
         });
       }
     },
-    [signIn, addToast],
+    [ResetPassword, addToast],
   );
   return (
     <Container>
@@ -66,20 +66,24 @@ const SignIn: React.FC = () => {
         <AnimationContainer>
         <Form ref={formRef} onSubmit={handleSubmit}>
           <img src={logoImg} alt="GoBarber" />
-          <h1>Faça seu logon</h1>
-          <Input name="email" icon={FiMail} placeholder="E-mail" />
+          <h1>Resetar senha</h1>
           <Input
             name="password"
             icon={FiLock}
             type="password"
-            placeholder="Senha"
+            placeholder="Nova senha"
           />
-          <Button type="submit">Entrar</Button>
-          <a href="/forgot-password">Esqueci minha senha</a>
+          <Input
+            name="password_confirmation"
+            icon={FiLock}
+            type="password"
+            placeholder="Confirmação da senha"
+          />
+          <Button type="submit">Alterar senha</Button>
         </Form>
-        <Link to="/signup">
+        <Link to="/signin">
           <FiLogIn />
-          Criar conta
+          Voltar ao login
         </Link>
         </AnimationContainer>
       </Content>
@@ -88,4 +92,4 @@ const SignIn: React.FC = () => {
   );
 };
 
-export default SignIn;
+export default ResetPassword;

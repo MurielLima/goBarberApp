@@ -1,9 +1,11 @@
-import React, { ButtonHTMLAttributes } from 'react';
+import React, { ButtonHTMLAttributes } from '../../pages/ResetPassword/node_modules/react';
 import { Container } from './styles';
-type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
-const Button: React.FC<ButtonProps> = ({ children, ...rest }) => (
-  <Container>
-    <button type="button" {...rest}>{children}</button>
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+  loading?: boolean;
+};
+const Button: React.FC<ButtonProps> = ({ children, loadingm, ...rest }) => (
+  <Container type="button"
+    {...rest}>{loading ? 'Carregando...' : children}
   </Container>
 );
 

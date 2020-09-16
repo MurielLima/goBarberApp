@@ -1,4 +1,4 @@
-import React from 'react';
+import React from '../../pages/ResetPassword/node_modules/react';
 import { Container } from './styles';
 interface InterfaceProps{
     title:string;

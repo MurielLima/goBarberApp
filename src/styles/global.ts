@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from '../pages/ResetPassword/node_modules/styled-components';
 
 export default createGlobalStyle`
 *{

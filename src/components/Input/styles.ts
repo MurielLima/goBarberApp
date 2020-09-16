@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from '../../pages/ResetPassword/node_modules/styled-components';
 import Tooltip from '../Tooltip/';
 
 interface ContainerProps {

@@ -1,4 +1,4 @@
-import React, { createContext, useCallback, useState, useContext } from 'react';
+import React, { createContext, useCallback, useState, useContext } from '../pages/ResetPassword/node_modules/react';
 import api from '../services/api';
 import ToastContainer from '../components/ToastContainer';
 import { uuid } from 'uuidv4';

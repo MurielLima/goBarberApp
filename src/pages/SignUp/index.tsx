@@ -1,14 +1,14 @@
-import React, { useCallback, useRef } from 'react';
+import React, { useCallback, useRef } from '../ResetPassword/node_modules/react';
 import logoImg from '../../assets/logo.svg';
 import { Container, Content, Background, AnimationContainer } from './styles';
-import { FiLogIn, FiMail, FiLock, FiUser, FiArrowLeft } from 'react-icons/fi';
+import { FiLogIn, FiMail, FiLock, FiUser, FiArrowLeft } from '../ResetPassword/node_modules/react-icons/fi';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
-import { FormHandles } from '@unform/core';
-import { Form } from '@unform/web';
-import * as Yup from 'yup';
+import { FormHandles } from '../ResetPassword/node_modules/@unform/core';
+import { Form } from '../ResetPassword/node_modules/@unform/web';
+import * as Yup from '../ResetPassword/node_modules/yup';
 import getValidationErrors from '../../utils/getValidationErrors';
-import { Link,useHistory } from 'react-router-dom';
+import { Link,useHistory } from '../ResetPassword/node_modules/react-router-dom';
 import { useToast } from '../../hook/toast';
 import api from '../../services/api';
 interface SignUpFormData{

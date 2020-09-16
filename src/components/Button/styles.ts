@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import {shade} from 'polished';
+import styled from '../../pages/ResetPassword/node_modules/styled-components';
+import {shade} from '../../pages/ResetPassword/node_modules/polished';
 export const Container = styled.div`
   button {
     background: #ff9000;

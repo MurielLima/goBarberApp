@@ -4,11 +4,11 @@ import React, {
   useRef,
   useState,
   useCallback,
-} from 'react';
+} from '../../pages/ResetPassword/node_modules/react';
 import { IconBaseProps } from 'react-icons';
-import { FiAlertCircle } from 'react-icons/fi';
+import { FiAlertCircle } from '../../pages/ResetPassword/node_modules/react-icons/fi';
 import { Container, Error } from './styles';
-import { useField } from '@unform/core';
+import { useField } from '../../pages/ResetPassword/node_modules/@unform/core';
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   name: string;
   icon?: React.ComponentType<IconBaseProps>;

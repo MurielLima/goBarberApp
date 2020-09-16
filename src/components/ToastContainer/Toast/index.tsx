@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from '../../../pages/ResetPassword/node_modules/react';
 import { Container } from './styles';
-import { FiAlertCircle, FiXCircle } from 'react-icons/fi';
+import { FiAlertCircle, FiXCircle } from '../../../pages/ResetPassword/node_modules/react-icons/fi';
 import { ToastMessage, useToast } from '../../../hook/toast';
 
 interface ToastProps{

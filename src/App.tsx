@@ -1,6 +1,6 @@
-import React from 'react';
+import React from './pages/ResetPassword/node_modules/react';
 import GlobalStyle from './styles/global';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter } from './pages/ResetPassword/node_modules/react-router-dom';
 import SignIn from './pages/SignIn';
 import { AuthProvider } from './hook/auth';
 import { ToastProvider } from './hook/toast';

@@ -1,7 +1,7 @@
-import React from 'react';
+import React from '../../pages/ResetPassword/node_modules/react';
 import { useTransition } from 'react-spring';
 import { Container } from './styles';
-import { FiAlertCircle, FiXCircle } from 'react-icons/fi';
+import { FiAlertCircle, FiXCircle } from '../../pages/ResetPassword/node_modules/react-icons/fi';
 import { ToastMessage, useToast } from '../../hook/toast';
 import Toast from './Toast';
 interface ToastContainerProps {

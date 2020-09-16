@@ -1,4 +1,4 @@
-import React from 'react';
+import React from '../pages/ResetPassword/node_modules/react';
 import { ToastProvider } from './toast';
 import { AuthProvider } from './auth';
 

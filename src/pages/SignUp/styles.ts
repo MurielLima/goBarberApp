@@ -1,6 +1,6 @@
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes } from '../ResetPassword/node_modules/styled-components';
 import signUpBackground from '../../assets/signup-background.png';
-import { shade } from 'polished';
+import { shade } from '../ResetPassword/node_modules/polished';
 export const Container = styled.div`
   height: 100vh;
   display: flex;
