@@ -29,10 +29,7 @@ const ForgotPassword: React.FC = () => {
         const schema = Yup.object().shape({
           email: Yup.string()
             .required('E-mail é obrigatório')
-            .email('Digite um e-mail válido'),
-            password_confirmation: Yup.string().oneOf(
-              [Yup.ref('password'),null],'Confirmação incorreta'
-            )
+            .email('Digite um e-mail válido')
         });
         await schema.validate(data, {
           abortEarly: false,
