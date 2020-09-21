@@ -55,14 +55,14 @@ const Profile: React.FC = () => {
 
     const { name, email, old_password, password, password_confirmation} = data;
 
-      const formData = Object.assign({
-        name: data.name,
-        email: data.email,
-      }, data.old_password ?{
-        old_password,
-        password,
-        password_confirmation
-      }: {})
+const formData = {
+      name,
+      email,
+      ...( old_password ? {
+      old_password,
+      password,
+      password_confirmation
+    }: {})};
       await api.post('/session', data);
       addToast({
         title:'Perfil atualizado com sucesso',

@@ -49,13 +49,13 @@ const AuthProvider: React.FC = ({ children }) => {
     setData({} as AuthState);
   }, []);
 
-  const updateUser = useCallback((user:User)=>{
-    setData({
-      token:data.token,
-      user
-    })
-    localStorage.setItem('@GoBarber:user', JSON.stringify(user));
-  },[setData, data.token]);
+	  const updateUser = useCallback((user:User)=>{
+	    setData({
+	      token:data.token,
+	      user
+	    })
+	    localStorage.setItem('@GoBarber:user', JSON.stringify(user));
+	  },[setData, data.token]);
 
   return (
     <AuthContext.Provider value={{ user: data.user, signIn, signOut }}>
@@ -66,9 +66,6 @@ const AuthProvider: React.FC = ({ children }) => {
 
 function useAuth(): AuthContextData {
   const authContext = useContext(AuthContext);
-  if (!authContext) {
-    throw new Error('useAuth must be used within an AuthContext');
-  }
   return authContext;
 }
 export { AuthContext, AuthProvider, useAuth };
